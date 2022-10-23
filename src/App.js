@@ -16,10 +16,7 @@ function App() {
       <Modal
         show={showModal}
         closeCallback={showCallback}
-        style={{
-          border: "solid 1px red",
-          borderRadius: "5px",
-        }}
+        style={{ backgroundColor: "green" }}
       >
         Modal <strong>content</strong>
       </Modal>

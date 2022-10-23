@@ -1,4 +1,5 @@
 import React, { useEffect, useRef } from "react";
+import "./Modal.css";
 
 export default function Modal({ children, show, closeCallback, style }) {
   const ref = useRef(null);
@@ -20,9 +21,11 @@ export default function Modal({ children, show, closeCallback, style }) {
   }, [closeCallback, show]);
 
   return (
-    <dialog ref={ref} style={style}>
-      <button onClick={closeCallback}>Close modal</button>
-      {children}
+    <dialog ref={ref} style={style} className="modal">
+      <div className="content">{children}</div>
+      <a href="#close-modal" className="close-modal" onClick={closeCallback}>
+        Close
+      </a>
     </dialog>
   );
 }
