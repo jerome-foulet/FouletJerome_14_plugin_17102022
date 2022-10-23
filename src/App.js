@@ -1,23 +1,28 @@
-import logo from './logo.svg';
-import './App.css';
+import { useState } from "react";
+import "./App.css";
+import Modal from "./components/Modal";
 
 function App() {
+  const [showModal, setShowModal] = useState(false);
+
+  const showCallback = (event) => {
+    setShowModal(!showModal);
+  };
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <button onClick={showCallback}>Show modal</button>
+
+      <Modal
+        show={showModal}
+        closeCallback={showCallback}
+        style={{
+          border: "solid 1px red",
+          borderRadius: "5px",
+        }}
+      >
+        Modal <strong>content</strong>
+      </Modal>
     </div>
   );
 }
